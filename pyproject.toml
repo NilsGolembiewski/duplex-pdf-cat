@@ -1,0 +1,26 @@
+[project]
+name = "duplex-pdf-cat"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Nils Golembiewski",email = "nilsgolembiewski@techonomy.nl"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "click (>=8.1.8,<9.0.0)",
+    "pypdf (>=5.3.0,<6.0.0)"
+]
+
+
+[tool.poetry.scripts]
+duplex-pdf-cat = "duplex_pdf_cat.cli:main"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.4"
+ruff = "^0.9.7"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
