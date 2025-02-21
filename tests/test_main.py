@@ -1,7 +1,5 @@
-import os
 from pathlib import Path
 
-import pytest
 from pypdf import PdfReader, PdfWriter
 from click.testing import CliRunner
 
@@ -67,7 +65,9 @@ def test_multiple_pdf_mixed(tmp_path: Path):
     output_pdf = tmp_path / "output_mixed.pdf"
 
     runner = CliRunner()
-    result = runner.invoke(main, ["--output", str(output_pdf), str(odd_pdf), str(even_pdf)])
+    result = runner.invoke(
+        main, ["--output", str(output_pdf), str(odd_pdf), str(even_pdf)]
+    )
     assert result.exit_code == 0, result.output
 
     page_count = get_pdf_page_count(output_pdf)

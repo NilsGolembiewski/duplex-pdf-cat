@@ -26,13 +26,14 @@ def process_pdf(input_path: str, writer: PdfWriter) -> None:
 
 @click.command()
 @click.option(
-    '--output', '-o',
+    "--output",
+    "-o",
     required=True,
     type=click.Path(writable=True),
-    help="Path to the output concatenated PDF file."
+    help="Path to the output concatenated PDF file.",
 )
 @click.argument(
-    'input_files',
+    "input_files",
     nargs=-1,
     type=click.Path(exists=True),
 )
@@ -59,5 +60,5 @@ def main(output: str, input_files: tuple) -> None:
     click.echo(f"Concatenated PDF written to {output}")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
